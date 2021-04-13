@@ -1,36 +1,40 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ImageBackground } from "react-native";
 import styles from "./styles";
 
-const Post = () => {
+const Post = (props) => {
+  const post = props.post;
   return (
     <View style={styles.container}>
       {/* Image */}
+
       <Image
         style={styles.image}
         source={{
-          uri:
-            "https://cf.bstatic.com/images/hotel/max1024x768/232/232147488.jpg",
+          uri: post.image,
+        }}
+        loadingIndicatorSource={{
+          source: require("../../../assets/images/load.gif"),
         }}
       />
-
       {/* Text of bed bedroom */}
-      <Text style={styles.bedrooms}>1 bed 1 bedroom</Text>
-
-      {/* Type and description */}
-      <Text style={styles.description}>
-        Entrire Flat. Sint non duis aliqua ut laboris adipisicing non nisi aute
-        non Lorem velit.
+      <Text style={styles.bedrooms}>
+        {post.bed} bed {post.bedroom} bedroom
       </Text>
 
-      {/* Old and New price */}
-      <Text styl={styles.prices}>
-        <Text style={styles.oldPrice}>$36</Text> &nbsp;&nbsp;
-        <Text style={styles.newPrice}>$30</Text> / night
+      {/* Type & Description */}
+      <Text style={styles.description} numberOfLines={2}>
+        {post.type}. {post.title}
       </Text>
 
-      {/* Total price */}
-      <Text style={styles.totalPrice}>$230 total</Text>
+      {/*  Old price & new price */}
+      <Text style={styles.prices}>
+        <Text style={styles.oldPrice}>${post.oldPrice}</Text>
+        <Text style={styles.price}> ${post.newPrice} </Text>/ night
+      </Text>
+
+      {/*  Total price */}
+      <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
     </View>
   );
 };
