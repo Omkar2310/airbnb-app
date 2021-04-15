@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-airbnbapp-dev-112605-authRole",
+      "UnauthRoleArn": "arn:aws:iam::721686114109:role/amplify-airbnbapp-dev-112605-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::721686114109:role/amplify-airbnbapp-dev-112605-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-airbnbapp-dev-112605-deployment",
+      "UnauthRoleName": "amplify-airbnbapp-dev-112605-unauthRole",
+      "StackName": "amplify-airbnbapp-dev-112605",
+      "StackId": "arn:aws:cloudformation:ap-south-1:721686114109:stack/amplify-airbnbapp-dev-112605/47213b90-9daf-11eb-afa0-06455bfc9230",
+      "AmplifyAppId": "d34k4c07wkal5b"
+    },
+    "categories": {
+      "auth": {
+        "airbnbapp38c0f04f": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "airbnbapp",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-airbnbapp-dev-112605-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/19ca17e8a455ec2e5833dad71f7ed99e91738964"
+}
