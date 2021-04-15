@@ -7,11 +7,20 @@ import feed from "../../../assets/data/feed";
 import Post from "../../components/Post/index";
 const SearchResultScreen = (props) => {
   const [posts, setPosts] = useState([]);
-
+  const { guests } = props;
+  // console.warn(guests);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsResult = await API.graphql(graphqlOperation(listPosts));
+        const postsResult = await API.graphql(
+          graphqlOperation(listPosts, {
+            filter: {
+              maxGuests: {
+                ge: guests,
+              },
+            },
+          })
+        );
         setPosts(postsResult.data.listPosts.items);
       } catch (e) {
         console.log(e);
