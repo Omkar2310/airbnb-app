@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, FlatList } from "react-native";
+import { API, graphqlOperation } from "aws-amplify";
+import { listPosts } from "../../graphql/queries";
+
 import feed from "../../../assets/data/feed";
 import Post from "../../components/Post/index";
-
 const SearchResultScreen = (props) => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsResult = await API.graphql(graphqlOperation(listPosts));
+        setPosts(postsResult.data.listPosts.items);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <View>
+      <Text>Your Post : {posts[0] ? posts[0].title : "empty"}</Text>
       <FlatList
-        data={feed}
+        data={posts}
         renderItem={({ item }) => <Post post={item} />}
       ></FlatList>
     </View>
