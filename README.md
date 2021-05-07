@@ -1,2 +1,2 @@
 # airbnb-app
-Airbnb clpne using react-native
+Airbnb clone using react-native
